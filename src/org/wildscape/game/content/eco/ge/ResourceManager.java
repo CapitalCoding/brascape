@@ -416,7 +416,7 @@ public final class ResourceManager {
 				continue;
 			}
 			int amount = def.getConfiguration(ItemConfigSQLHandler.GE_LIMIT, 500) * 100;
-			// addResource(itemId, amount, true);
+			addResource(itemId, amount, true);
 			System.out.println(amount + " x " + def.getName() + " - " + (int) (new Item(itemId).getValue() * 1.05) + "gp");
 		}
 		// System.out.println("Added " + handledResources.size() +

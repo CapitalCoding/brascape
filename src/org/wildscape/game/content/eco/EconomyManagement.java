@@ -9,7 +9,7 @@ public final class EconomyManagement {
 	/**
 	 * The current economy state.
 	 */
-	private static EcoStatus ecoState = EcoStatus.MAINTAINING;
+	private static EcoStatus ecoState = EcoStatus.BOOSTING;
 
 	/**
 	 * The modification rate.

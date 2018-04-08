@@ -87,6 +87,9 @@ public final class GrandExchangeZone extends MapZone implements Plugin<Object> {
 				case 8139:
 					ShopSQLHandler.getShops().get(node.getId()).open(player);
 					break;
+				case 713:
+					player.getGrandExchange().open();
+					break;
 				}
 				break;
 			case "Trade":
@@ -116,7 +119,7 @@ public final class GrandExchangeZone extends MapZone implements Plugin<Object> {
 		 * Constructs a new {@Code CreditStore} {@Code Object}
 		 */
 		public CreditStore() {
-			super(GameWorld.getName()+"RSPS.org  <col=FF0000>Voting</col> Credit Shop", new Item[] {new Item(6199, 100), new Item(14810, 100), new Item(14807, 100), new Item(14674, 100), new Item(13661, 10)}, false);
+			super(GameWorld.getName()+"  <col=FF0000>Voting</col> Credit Shop", new Item[] {new Item(6199, 100), new Item(14810, 100), new Item(14807, 100), new Item(14674, 100), new Item(13661, 10)}, false);
 			setPointShop(true);
 		}
 

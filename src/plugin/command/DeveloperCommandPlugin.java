@@ -14,6 +14,7 @@ import org.wildscape.game.container.impl.EquipmentContainer;
 import org.wildscape.game.content.activity.ActivityManager;
 import org.wildscape.game.content.eco.ge.GrandExchangeDatabase;
 import org.wildscape.game.content.eco.ge.GrandExchangeEntry;
+import org.wildscape.game.content.eco.ge.ResourceManager;
 import org.wildscape.game.content.holiday.HolidayItem;
 import org.wildscape.game.content.holiday.ItemLimitation;
 import org.wildscape.game.content.skill.Skills;
@@ -62,6 +63,9 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
 	public boolean parse(final Player player, String name, String[] args) {
 		int value;
 		switch (name) {
+		case "starteco":
+			ResourceManager.kickStartEconomy();
+			break;
 		case "g":
 			Location l = player.getLocation();
 			int xz = l.getX();
