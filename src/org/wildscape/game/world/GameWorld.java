@@ -148,7 +148,7 @@ public final class GameWorld {
 	 * @throws Throwable When an exception occurs.
 	 */
 	public static void prompt(boolean run, String directory) throws Throwable {
-		SystemLogger.log("Prompting " + GameWorld.getName() + " Game World...");
+		SystemLogger.log("Prompting Fucking " + GameWorld.getName() + " Game World...");
 		Cache.init(ServerConstants.CACHE_PATH);
 		ServerStore.init(ServerConstants.STORE_PATH);
 		GrandExchangeDatabase.init();
