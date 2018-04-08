@@ -106,7 +106,7 @@ public final class GameSettings {
 	public static GameSettings parse(String[] args) {
 		String name = "RuneScape";
 		boolean beta = false;
-		boolean devMode = true;
+		boolean devMode = false;
 		boolean gui = false;
 		int worldId = 1;
 		int country = 0;
