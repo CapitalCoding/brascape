@@ -89,7 +89,7 @@ public final class LoginConfiguration {
 		player.getInterfaceManager().openWindowsPane(LOBBY_PANE);
 		player.getInterfaceManager().setOpened(LOBBY_INTERFACE);
 		PacketRepository.send(Interface.class, new InterfaceContext(player, 549, 2, 378, true));
-		//PacketRepository.send(Interface.class, new InterfaceContext(player, 549, 3, SystemManager.getSystemConfig().getConfig("messageInterface", 18), true));
+		PacketRepository.send(Interface.class, new InterfaceContext(player, 549, 3, SystemManager.getSystemConfig().getConfig("messageInterface", 18), true));
 	}
 
 	/**

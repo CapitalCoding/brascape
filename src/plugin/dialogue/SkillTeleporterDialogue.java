@@ -85,6 +85,9 @@ public class SkillTeleporterDialogue extends DialoguePlugin {
 			{"Wilderness Agility Course [Level 49]", Location.create(2999, 3909, 0)},
 			{"Werewolf Agility Course", Location.create(3543, 3467, 0)}
 		},
+		{{"Herblore"},
+			{"Kaqemeex", Location.create(2924, 3484, 0)}
+		},
 		{{"Thieving"},
 			{"Edgeville North House", Location.create(3104, 3509, 0)},
 				{"Ardougne Market", Location.create(2653, 3307, 0)},
@@ -214,12 +217,13 @@ public class SkillTeleporterDialogue extends DialoguePlugin {
 			return true;
 		case 2:
 			//optionIndex = this.skillButtonClicked >= 125 ? 0 : this.skillButtonClicked >= 130 ? 1 : 2;
-			optionIndex = this.skillButtonClicked == 148 ? 15 : this.skillButtonClicked == 147 ? 14 : 
-				this.skillButtonClicked == 146 ? 13 : this.skillButtonClicked == 144 ? 12 : this.skillButtonClicked == 143 ? 11 :
-				this.skillButtonClicked == 142 ? 10 : this.skillButtonClicked == 141 ? 9 : this.skillButtonClicked == 140 ? 8 :
-				this.skillButtonClicked == 139 ? 7 : this.skillButtonClicked == 136 ? 6 : this.skillButtonClicked == 134 ? 5 :
-				this.skillButtonClicked == 132 ? 4 : this.skillButtonClicked == 131 ? 3 : this.skillButtonClicked == 130 ? 2 :
-				this.skillButtonClicked == 128 ? 1 : this.skillButtonClicked >= 125  && this.skillButtonClicked <= 127 ? 0 :  -1 ;
+			optionIndex = this.skillButtonClicked == 148 ? 16 : this.skillButtonClicked == 147 ? 15 : 
+				this.skillButtonClicked == 146 ? 14 : this.skillButtonClicked == 144 ? 13 : this.skillButtonClicked == 143 ? 12 :
+				this.skillButtonClicked == 142 ? 11 : this.skillButtonClicked == 141 ? 10 : this.skillButtonClicked == 140 ? 9 :
+				this.skillButtonClicked == 139 ? 8 : this.skillButtonClicked == 136 ? 7 : this.skillButtonClicked == 135 ? 6 :
+				this.skillButtonClicked == 134 ? 5 : this.skillButtonClicked == 132 ? 4 : this.skillButtonClicked == 131 ? 3 : 
+				this.skillButtonClicked == 130 ? 2 : this.skillButtonClicked == 128 ? 1 : 
+				this.skillButtonClicked >= 125  && this.skillButtonClicked <= 127 ? 0 :  -1 ;
 			sendOptions();
 			stage = 2;
 			break;

@@ -106,7 +106,7 @@ public final class GameSettings {
 	public static GameSettings parse(String[] args) {
 		String name = "RuneScape";
 		boolean beta = false;
-		boolean devMode = false;
+		boolean devMode = true;
 		boolean gui = false;
 		int worldId = 1;
 		int country = 0;
@@ -116,36 +116,8 @@ public final class GameSettings {
 		boolean quickChat = true;
 		boolean lootshare = true;
 		String msAddress = Constants.DEFAULT_MS_IP;
-
-		/*for (String arg : args) {
-			if (arg.startsWith("name=")) {
-				name = arg.replace("name=", "");
-			} else if (arg.startsWith("beta=")) {
-				beta = Boolean.parseBoolean(arg.replace("beta=", ""));
-			} else if (arg.startsWith("devMode=")) {
-				devMode = Boolean.parseBoolean(arg.replace("devMode=", ""));
-			} else if (arg.startsWith("gui=")) {
-				gui = Boolean.parseBoolean(arg.replace("gui=", ""));
-			} else if (arg.startsWith("world=")) {
-				worldId = Integer.parseInt(arg.replace("world=", ""));
-			} else if (arg.startsWith("country=")) {
-				country = Integer.parseInt(arg.replace("country=", ""));
-			} else if (arg.startsWith("activity=")) {
-				activity = arg.replace("activity=", "");
-			} else if (arg.startsWith("members=")) {
-				members = Boolean.parseBoolean(arg.replace("members=", ""));
-			} else if (arg.startsWith("pvp=")) {
-				pvp = Boolean.parseBoolean(arg.replace("pvp=", ""));
-			} else if (arg.startsWith("quickChat=")) {
-				quickChat = Boolean.parseBoolean(arg.replace("quickChat=", ""));
-			} else if (arg.startsWith("lootshare=")) {
-				lootshare = Boolean.parseBoolean(arg.replace("lootshare=", ""));
-			} else if (arg.startsWith("msip=")) {
-				msAddress = arg.replace("msip=", "");
-			} else {
-				System.err.println("Unknown program argument specified: " + arg + ".");
-			}
-		}*/
+		if(beta || devMode)
+			System.out.println("[AVISO]TU TA USAND BETA MODE KRL");
 		return new GameSettings(name, beta, devMode, gui, worldId, country, activity, members, pvp, quickChat, lootshare, msAddress);
 	}
 
