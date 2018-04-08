@@ -1,0 +1,26 @@
+package org.wildscape.net.packet.in;
+
+import org.wildscape.game.node.entity.player.Player;
+import org.wildscape.net.packet.IncomingPacket;
+import org.wildscape.net.packet.IoBuffer;
+
+/**
+ * Handles the display update packet.
+ * @author Emperor
+ *
+ */
+public class DisplayUpdatePacket implements IncomingPacket {
+
+	@Override
+	public void decode(Player player, int opcode, IoBuffer buffer) {
+		int windowMode = buffer.get(); //Window mode
+		int screenWidth = buffer.getShort();
+		int screenHeight = buffer.getShort();
+		int displayMode = buffer.get(); //Display mode
+		player.getSession().getClientInfo().setScreenWidth(screenWidth);
+		player.getSession().getClientInfo().setScreenHeight(screenHeight);
+		player.getSession().getClientInfo().setDisplayMode(displayMode);
+		player.getInterfaceManager().switchWindowMode(windowMode);
+	}
+
+}
