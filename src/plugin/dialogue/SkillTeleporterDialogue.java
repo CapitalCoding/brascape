@@ -7,6 +7,7 @@ import org.wildscape.game.content.dialogue.DialogueInterpreter;
 import org.wildscape.game.content.dialogue.DialoguePlugin;
 import org.wildscape.game.content.skill.LevelUp;
 import org.wildscape.game.content.skill.Skills;
+import org.wildscape.game.content.skill.member.slayer.SlayerTeleport;
 import org.wildscape.game.node.entity.player.Player;
 import org.wildscape.game.node.entity.player.info.portal.DonatorType;
 import org.wildscape.game.node.entity.player.link.TeleportManager.TeleportType;
@@ -95,11 +96,12 @@ public class SkillTeleporterDialogue extends DialoguePlugin {
 				{"Pyramid Plunder", Location.create(3298, 2786, 0)}
 				},
 		{{"Slayer"},
-			{"Turael", Location.create(3104, 3509, 0)},
+			{"Teleport to assigned task", Location.create(3333, 3333, 0)},
+			{"Turael", Location.create(3176, 3484, 0)},
 			{"Mazchna", Location.create(3510, 3511, 0)},
 			{"Vannaka", Location.create(3146, 9913, 0)},
 			{"Chaeldar", Location.create(2447, 4429, 0)},
-			{"Duradel", Location.create(2862, 2982, 3)}
+			{"Duradel", Location.create(2869, 2981, 1)}
 			},
 		{{"Hunter"},
 			{"Feldip Hills East", Location.create(2606, 2925, 0)},
@@ -108,6 +110,7 @@ public class SkillTeleporterDialogue extends DialoguePlugin {
 			},
 		{{"Mining"}, //10
 			{"Lumbdrige Swamp", Location.create(3231, 3151, 0)},
+			{"Al kharid North", Location.create(3299, 3302, 0)},
 			{"Mining Guild", Location.create(3029, 3336, 0)},
 			{"Desert Mining Camp [Desert Duh]", Location.create(3175, 2928, 0)}
 			},
@@ -283,6 +286,16 @@ public class SkillTeleporterDialogue extends DialoguePlugin {
 				interpreter.sendDialogue("You need to have completed Lost City to teleport here.");
 				break;
 			}
+			System.out.println("Option index:"+optionIndex+" "+teleIndex);
+			if(optionIndex == 8 && teleIndex == 1) {
+				SlayerTeleport slayerTele = SlayerTeleport.getByAssignedTask(player);
+				if(slayerTele == null) {
+					player.sendMessage("You don't have an assigned task to teleport to. ");
+					interpreter.close();
+					break;	
+				}
+				teleports[1] = slayerTele.getTp().getLocation();	
+			}
 			send(player, (Location) teleports[1]);
 			break;
 			}
@@ -299,6 +312,7 @@ public class SkillTeleporterDialogue extends DialoguePlugin {
 		}
 	if (firstIndex >= TELEPORTS[optionIndex].length -1) {
 		firstIndex = 0;
+		
 	}
 	int optionSize = 3;
 	Object[][] data = TELEPORTS[optionIndex];
