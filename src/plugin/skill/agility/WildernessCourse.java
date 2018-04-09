@@ -61,7 +61,8 @@ public final class WildernessCourse extends AgilityCourse {
 		case 2283:
 			handleRopeSwing(player, object);
 			break;
-		case 2311:
+		//case 2311:
+		case 37704:
 			handleSteppingStones(player, object);
 			break;
 		case 2297:
@@ -266,8 +267,9 @@ public final class WildernessCourse extends AgilityCourse {
 		ObjectDefinition.forId(2308).getConfigurations().put("option:open", this);
 		ObjectDefinition.forId(2307).getConfigurations().put("option:open", this);
 		ObjectDefinition.forId(2288).getConfigurations().put("option:squeeze-through", this);
-		ObjectDefinition.forId(2283).getConfigurations().put("option:swing-on", this);
-		ObjectDefinition.forId(2311).getConfigurations().put("option:cross", this);
+		ObjectDefinition.forId(2283).getConfigurations().put("option:swing-on", this);	
+		//ObjectDefinition.forId(2311).getConfigurations().put("option:cross", this);
+		ObjectDefinition.forId(37704).getConfigurations().put("option:cross", this);
 		ObjectDefinition.forId(2297).getConfigurations().put("option:walk-across", this);
 		ObjectDefinition.forId(2328).getConfigurations().put("option:climb", this);
 	}
