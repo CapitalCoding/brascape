@@ -385,6 +385,7 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
 				deleteItem(player, args);
 			}
 			break;
+
 		case "setvalue":
 			int itemId = toInteger(args[1]);
 			value = toInteger(args[2]);

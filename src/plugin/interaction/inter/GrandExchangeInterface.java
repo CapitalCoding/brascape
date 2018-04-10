@@ -350,7 +350,9 @@ public class GrandExchangeInterface extends ComponentPlugin {
 		case 177: // mid - 5% value
 		case 183: // mid + 5% value
 			if (offer != null) {
-				setOfferValue(player, offer, (int) (offer.getEntry().getValue() * (button == 177 ? 0.95 : 1.05)));
+				int offerValue = (int)(offer.getOfferedValue() * (button == 177 ? 0.95 : 1.05));
+				setOfferValue(player, offer, offerValue);
+				System.out.println("OffV:"+offer.getEntry().getValue()+" OffFV:"+offer.getOfferedValue());
 				return true;
 			}
 			return false;

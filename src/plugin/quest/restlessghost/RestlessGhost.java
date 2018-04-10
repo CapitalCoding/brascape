@@ -5,6 +5,7 @@ import org.wildscape.game.node.entity.player.Player;
 import org.wildscape.game.node.entity.player.link.quest.Quest;
 import org.wildscape.game.node.item.Item;
 import org.wildscape.plugin.PluginManager;
+import org.wildscape.tools.StringUtils;
 
 /**
  * Represents the restless ghost quest.
@@ -38,6 +39,7 @@ public class RestlessGhost extends Quest {
 			player.getPacketDispatch().sendString("<col=08088A>I can start this quest by speaking to <col=8A0808>Father Aereck</col> <col=08088A>in the", 275, 4+ 7);
 			player.getPacketDispatch().sendString("<col=8A0808>church</col> <col=08088A>next to <col=8A0808>Lumbridge Castle.<col=8A0808>", 275, 5+ 7);
 			player.getPacketDispatch().sendString("<col=08088A>I must be unafraid of a <col=8A0808>Level 13 Skeleton ", 275, 6+ 7);
+			player.getPacketDispatch().sendString("<col=08088A>Rewards:<col=8A0808>"+StringUtils.getFormattedNumber((int)(1125 * Skills.EXPERIENCE_MULTIPLIER))+"<col=08088A> Prayer exp <col=8A0808>"+this.getQuestPoints()+"<col=08088A> Quest Point", 275, 7+ 7);
 		}
 		if (stage == 10) {
 			player.getPacketDispatch().sendString("<str>Father Aereck asked me to help him deal with the Ghost in", 275, 4+ 7);
