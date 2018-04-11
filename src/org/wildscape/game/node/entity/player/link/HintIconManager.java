@@ -2,7 +2,9 @@ package org.wildscape.game.node.entity.player.link;
 
 import org.wildscape.game.node.Node;
 import org.wildscape.game.node.entity.Entity;
+import org.wildscape.game.node.entity.npc.NPC;
 import org.wildscape.game.node.entity.player.Player;
+import org.wildscape.game.world.repository.Repository;
 import org.wildscape.net.packet.PacketRepository;
 import org.wildscape.net.packet.context.HintIconContext;
 import org.wildscape.net.packet.out.HintIcon;
@@ -47,6 +49,20 @@ public final class HintIconManager {
 		 */
 	}
 
+	/**
+	 * Registers a new hint icon.
+	 * @param player The player.
+	 * @param target The entity target.
+	 * @return The slot of the hint icon.
+	 */
+	public static int registerHintIconWithFlag(Player player, Node target) {
+		player.getHintIconManager().clear();
+		target.setHintIconFlag(true);	
+		int slot = registerHintIcon(player, target);		
+		player.setAttribute("interaction-flag:hi_slot", slot);
+		
+		return slot;
+	}
 	/**
 	 * Registers a new hint icon.
 	 * @param player The player.
@@ -170,7 +186,6 @@ public final class HintIconManager {
 			mng.hintIcons[slot] = null;
 		}
 	}
-
 	/**
 	 * Clears the hint icons.
 	 */

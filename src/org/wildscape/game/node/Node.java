@@ -62,6 +62,10 @@ public abstract class Node {
 	protected boolean renderable = true;
 
 	/**
+	 * Creates a flag that when player speak to that entity will trigger
+	 */
+	private boolean hintIconFlag = false;
+	/**
 	 * Constructs a new {@code Node} {@code Object}.
 	 * @param name The name.
 	 * @param location The location.
@@ -266,5 +270,12 @@ public abstract class Node {
 	public void setRenderable(boolean renderable) {
 		this.renderable = renderable;
 	}
+	
+	public boolean isHintIconFlag() {
+		return hintIconFlag;
+	}
 
+	public void setHintIconFlag(boolean hintIconFlag) {
+		this.hintIconFlag = hintIconFlag;
+	}
 }

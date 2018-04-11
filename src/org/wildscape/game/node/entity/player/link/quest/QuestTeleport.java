@@ -1,8 +1,14 @@
 package org.wildscape.game.node.entity.player.link.quest;
 
-public enum QuestTeleport {
+import org.wildscape.ServerConstants.TeleportDestinations;
 
-	RESTLESS_FATHER_AEREK();
-	
-	
+public class QuestTeleport {
+
+	private TeleportDestinations destination;
+	private String tag;
+
+	public QuestTeleport(TeleportDestinations destination, String tag) {
+	this.destination = destination;
+	this.tag = tag;
+	}
 }

@@ -552,9 +552,9 @@ public class Shop {
 	 * @return the selling value.
 	 */
 	private int getSellValue(Player player, int amount, Item item) {
-		if (player.isDonator() && player.getZoneMonitor().isInZone("Donator Zone")) {
+		/*if (player.isDonator() && player.getZoneMonitor().isInZone("Donator Zone")) {
 			return (int) (item.getDefinition().getAlchemyValue(highAlch) * item.getAmount());
-		}
+		}*/
 		double diff = item.getDefinition().isStackable() ? 0.005 : 0.05;
 		double maxMod = 1.0 - (amount * diff);
 		if (maxMod < 0.25) {
@@ -565,8 +565,10 @@ public class Shop {
 			minMod = 0.25;
 		}
 		double mod = (maxMod + minMod) / 2;
-		int value = (item.getDefinition().getAlchemyValue(highAlch) == 0 ? (int)(item.getValue() * 0.16 * item.getAmount()) 
-				: ((int) ( item.getDefinition().getAlchemyValue(highAlch) * mod * item.getAmount())));
+		int normalCalc = (int)(item.getValue() * mod);
+		int alchCalc = ((int) ( item.getDefinition().getAlchemyValue(highAlch) * mod * item.getAmount()));
+		int value = item.getDefinition().getAlchemyValue(highAlch) == 0 ? normalCalc
+				: alchCalc;
 		return value;
 	}
 

@@ -25,6 +25,7 @@ import org.wildscape.game.node.entity.combat.ImpactHandler.HitsplatType;
 import org.wildscape.game.node.entity.npc.NPC;
 import org.wildscape.game.node.entity.player.Player;
 import org.wildscape.game.node.entity.player.info.login.PlayerParser;
+import org.wildscape.game.node.entity.player.link.HintIconManager;
 import org.wildscape.game.node.entity.player.link.IronmanMode;
 import org.wildscape.game.node.entity.state.EntityState;
 import org.wildscape.game.node.item.Item;
@@ -63,6 +64,10 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
 	public boolean parse(final Player player, String name, String[] args) {
 		int value;
 		switch (name) {
+		case "hiticon":
+			NPC npc = Repository.findNPC( Integer.parseInt(args[1]));
+			HintIconManager.registerHintIconWithFlag(player, npc);
+			break;
 		case "starteco":
 			ResourceManager.kickStartEconomy();
 			break;

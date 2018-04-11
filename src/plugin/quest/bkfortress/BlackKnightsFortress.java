@@ -1,5 +1,6 @@
 package plugin.quest.bkfortress;
 
+import org.wildscape.ServerConstants.TeleportDestinations;
 import org.wildscape.game.node.entity.player.Player;
 import org.wildscape.game.node.entity.player.link.quest.Quest;
 import org.wildscape.game.node.item.Item;
@@ -82,7 +83,17 @@ public final class BlackKnightsFortress extends Quest {
 			break;
 		}
 	}
-
+	//@Override
+	public Object[][] teleports() {
+		Object[][] tps = { 
+				{"Duke Horacio", TeleportDestinations.LUMBRIDGE.getLocation()} ,
+				{"Head Wizard", TeleportDestinations.WIZARD_TOWER.getLocation()},
+				{"Aubury", TeleportDestinations.VARROCK.getLocation()}
+			
+		};
+		
+		return  tps;
+	}
 	@Override
 	public void finish(Player player) {
 		super.finish(player);

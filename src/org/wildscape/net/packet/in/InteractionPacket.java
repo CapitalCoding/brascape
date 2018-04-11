@@ -7,9 +7,11 @@ import org.wildscape.game.content.dialogue.DialogueAction;
 import org.wildscape.game.interaction.Interaction;
 import org.wildscape.game.interaction.MovementPulse;
 import org.wildscape.game.interaction.Option;
+import org.wildscape.game.node.Node;
 import org.wildscape.game.node.entity.npc.NPC;
 import org.wildscape.game.node.entity.player.Player;
 import org.wildscape.game.node.entity.player.ai.AIPlayer;
+import org.wildscape.game.node.entity.player.link.HintIconManager;
 import org.wildscape.game.node.item.GroundItem;
 import org.wildscape.game.node.item.GroundItemManager;
 import org.wildscape.game.node.object.GameObject;
@@ -160,6 +162,7 @@ public final class InteractionPacket implements IncomingPacket {
 			PacketRepository.send(ClearMinimapFlag.class, new PlayerContext(player));
 			return;
 		}
+		handleInteractionHitIconFlag(npc, player);
 		if (player.getAttribute("removenpc", false)) {
 			npc.clear();
 			player.getPacketDispatch().sendMessage("Removed npc=" + npc.toString());
@@ -174,11 +177,18 @@ public final class InteractionPacket implements IncomingPacket {
 		}
 		player.debug("NPC Interacting with \"" + shown.getUsername() + "\" [index=" + index + ", renderable=" + npc.isRenderable() + "]");
 		player.debug("option=" + option.getName() + ", slot=" + option.getIndex() + ", id=" + shown.getId() + " original=" + npc.getId() + ", location=" + npc.getLocation() + "");
-		player.debug("spawn=" + npc.getProperties().getSpawnLocation() + ".");
+		player.debug("spawn=" + npc.getProperties().getSpawnLocation() + ", hiticon="+npc.isHintIconFlag());
 		handleAIPLegion(player, 0, optionIndex, index);
 		npc.getInteraction().handle(player, option);
 	}
-
+	private static void handleInteractionHitIconFlag(Node node, Player player) {
+		if(node == null || player == null ||
+				player.getAttribute("interaction-flag:hi_slot") == null || !node.isHintIconFlag())
+			return;		
+		int slot = player.getAttribute("interaction-flag:hi_slot",-1);
+		node.setHintIconFlag(false);
+		HintIconManager.removeHintIcon(player, slot);
+	}
 	/**
 	 * Handles object interaction
 	 * @param player The interacting player.
@@ -189,6 +199,7 @@ public final class InteractionPacket implements IncomingPacket {
 	 */
 	private static void handleObjectInteraction(final Player player, int optionIndex, int x, int y, int objectId) {
 		GameObject object = RegionManager.getObject(player.getLocation().getZ(), x, y, objectId);
+		handleInteractionHitIconFlag(object, player);
 		if (objectId == 29735) {//player safety.
 			player.getPulseManager().run(new MovementPulse(player, Location.create(x, y, player .getLocation().getZ())) {
 				@Override

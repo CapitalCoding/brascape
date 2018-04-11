@@ -146,7 +146,9 @@ public final class ServerConstants {
 		CASTLE_WARS(Location.create(2459,3092, 0), "castle wars"),
 		ZANARIS_ENTRANCE(Location.create(3197,3169, 0), "zanaris entrance"),
 		WILDERNESS_RIFT(Location.create(3061,3549, 0), "wilderness rift"),
-		BRINE_CAVERN(Location.create(2748,3733, 0), "brine cavern"),
+		BRINE_CAVERN(Location.create(2748,3733, 0), "brine cavern")
+		
+		
 		;
 		private Location location;
 		private String tag[];

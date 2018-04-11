@@ -142,6 +142,8 @@ public final class Properties {
 	 * The style the npc protects against.
 	 */
 	private CombatStyle protectStyle;
+	
+
 
 	/**
 	 * Constructs a new {@code Properties} {@code Object}.

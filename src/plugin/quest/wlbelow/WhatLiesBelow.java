@@ -1,9 +1,11 @@
 package plugin.quest.wlbelow;
 
+import org.wildscape.ServerConstants.TeleportDestinations;
 import org.wildscape.game.content.skill.Skills;
 import org.wildscape.game.node.entity.player.Player;
 import org.wildscape.game.node.entity.player.link.quest.Quest;
 import org.wildscape.game.node.item.Item;
+import org.wildscape.game.world.map.Location;
 import org.wildscape.plugin.PluginManager;
 
 /**
@@ -192,5 +194,5 @@ public class WhatLiesBelow extends Quest {
 		player.getConfigManager().set(1181, (1 << 8) + (1 << 9), true);
 		return new int[] { id, 502 };
 	}
-	
+
 }

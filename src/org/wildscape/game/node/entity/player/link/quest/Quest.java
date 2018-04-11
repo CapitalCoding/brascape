@@ -81,7 +81,8 @@ public abstract class Quest implements Plugin<Object>{
 	public Object fireEvent(String identifier, Object... args) {
 		return null;
 	}
-
+	//public abstract Object[][] teleports();
+	protected QuestProtagonists currentProtagonist;
 	@Override
 	public abstract Quest newInstance(Object object);
 	

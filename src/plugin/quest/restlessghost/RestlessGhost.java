@@ -1,9 +1,11 @@
 package plugin.quest.restlessghost;
 
+import org.wildscape.ServerConstants.TeleportDestinations;
 import org.wildscape.game.content.skill.Skills;
 import org.wildscape.game.node.entity.player.Player;
 import org.wildscape.game.node.entity.player.link.quest.Quest;
 import org.wildscape.game.node.item.Item;
+import org.wildscape.game.world.map.Location;
 import org.wildscape.plugin.PluginManager;
 import org.wildscape.tools.StringUtils;
 
@@ -91,7 +93,18 @@ public class RestlessGhost extends Quest {
 			player.getPacketDispatch().sendString("<col=FF0000>QUEST COMPLETE!", 275, 16+ 7);
 		}
 	}
-
+	//@Override
+	public Object[][] teleports() {
+		Object[][] tps = { 
+				{"Father Aerek"  ,Location.create(3242,3205, 0)} ,
+				{"Father Urhney"  ,Location.create(3148,3170, 0)},
+			{"Restless Ghost", Location.create(3246,3193, 0)},
+			{"Wizard Tower", TeleportDestinations.WIZARD_TOWER.getLocation()}
+			
+		};
+		
+		return  tps;
+	}
 	@Override
 	public void finish(Player player) {
 		super.finish(player);
