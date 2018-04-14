@@ -3,6 +3,7 @@ package plugin.quest;
 import org.wildscape.game.content.skill.Skills;
 import org.wildscape.game.node.entity.player.Player;
 import org.wildscape.game.node.entity.player.link.quest.Quest;
+import org.wildscape.game.node.entity.player.link.quest.QuestProtagonists;
 
 /**
  * Represents the cooks assistants quest
@@ -23,6 +24,7 @@ public final class CooksAssistant extends Quest {
 		super.drawJournal(player, stage);
 		player.getPacketDispatch().sendString("<col=08088A>I can start this quest by speaking to the <col=8A0808>Cook</col> <col=08088A>in the", 275, 4+ 7);
 		player.getPacketDispatch().sendString("<col=8A0808>Kitchen</col> <col=08088A>on the ground for of <col=8A0808>Lumbridge Castle.<col=8A0808>", 275, 5+ 7);
+		this.currentProtagonist = QuestProtagonists.COOK;
 		if (stage == 10) {
 			player.getPacketDispatch().sendString("<col=08088A>It's the <col=8A0808>Duke of Lumbridge's</col> <col=08088A>birthday and I have to help", 275, 4+ 7);
 			player.getPacketDispatch().sendString("<col=08088A>his</col> <col=8A0808>Cook</col> <col=08088A>make him a <col=8A0808>birthday cake.</col><col=08088A> To do this I need to", 275, 5+ 7);
@@ -51,7 +53,7 @@ public final class CooksAssistant extends Quest {
 			if (player.getSavedData().getQuestData().getCookAssist("egg")) {
 				player.getPacketDispatch().sendString("<str>I have given the cook an egg.</str>", 275, 9+ 7);// I
 			}
-
+			this.currentProtagonist = QuestProtagonists.COOK;
 		}
 		if (stage == 100) {
 			player.getPacketDispatch().sendString("<str>It was the Duke of Lumbridge's birthday,  but his cook had", 275, 4+ 7);

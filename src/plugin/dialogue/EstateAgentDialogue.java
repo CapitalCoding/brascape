@@ -123,7 +123,8 @@ public final class EstateAgentDialogue extends DialoguePlugin {
 			}
 			break;
 		case 7:
-			if (player.getInventory().remove(new Item(995, 1000))) {
+			Item coins = new Item(995, 1000);
+			if (player.getInventory().remove(coins)) {
 				player.getHouseManager().create(HouseLocation.RIMMINGTON);
 				npc("Thank you. Go through the Rimmington house portal", "and you will find your house ready for you to start", "building in it.");
 				stage = 8;

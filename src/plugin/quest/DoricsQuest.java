@@ -3,6 +3,7 @@ package plugin.quest;
 import org.wildscape.game.content.skill.Skills;
 import org.wildscape.game.node.entity.player.Player;
 import org.wildscape.game.node.entity.player.link.quest.Quest;
+import org.wildscape.game.node.entity.player.link.quest.QuestProtagonists;
 import org.wildscape.game.node.item.GroundItemManager;
 import org.wildscape.game.node.item.Item;
 
@@ -33,6 +34,7 @@ public class DoricsQuest extends Quest {
 			player.getPacketDispatch().sendString("<col=08088A>I can start this quest by speaking to <col=8A0808>Doric</col> <col=08088A>who is <col=8A0808>North of", 275, 4+ 7);
 			player.getPacketDispatch().sendString("<col=8A0808>Falador", 275, 5+ 7);
 			player.getPacketDispatch().sendString("<col=08088A>There aren't any requirements but <col=8A0808>Level 15 Mining <col=08088A>will help", 275, 7+ 7);
+			this.currentProtagonist = QuestProtagonists.DORIC;
 			break;
 		case 1:
 			player.getPacketDispatch().sendString("<str>I have spoken to <col=8A0808>Doric</str>", 275, 4+ 7);
@@ -40,6 +42,7 @@ public class DoricsQuest extends Quest {
 			player.getPacketDispatch().sendString(player.getInventory().contains(434, 6) ? "<str>6 Clay</str>" : "<col=8A0808>6 Clay", 275, 7+ 7);
 			player.getPacketDispatch().sendString(player.getInventory().contains(436, 4) ? "<str>4 Copper Ore</str>" : "<col=8A0808>4 Copper Ore", 275, 8+ 7);
 			player.getPacketDispatch().sendString(player.getInventory().contains(440, 2) ? "<str>2 Iron Ore</str>" : "<col=8A0808>2 Iron Ore", 275, 9+ 7);
+			this.currentProtagonist = QuestProtagonists.DORIC;
 			break;
 		case 100:
 			player.getPacketDispatch().sendString("<str>I have spoken to <col=8A0808>Doric</str>", 275, 4+ 7);

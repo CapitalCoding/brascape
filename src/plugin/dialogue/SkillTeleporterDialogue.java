@@ -2,6 +2,7 @@ package plugin.dialogue;
 
 import java.util.concurrent.TimeUnit;
 
+import org.wildscape.ServerConstants.TeleportDestinations;
 import org.wildscape.game.component.Component;
 import org.wildscape.game.content.dialogue.DialogueInterpreter;
 import org.wildscape.game.content.dialogue.DialoguePlugin;
@@ -56,6 +57,7 @@ public class SkillTeleporterDialogue extends DialoguePlugin {
 				{"Ape Atoll Dungeon", Location.create(2764, 9103, 0)}},
 		{{"Magic"}, //3
 					{"Magic Training Arena", Location.create(3363, 3298, 0)},
+					{"Magic's Guild", TeleportDestinations.YANILLE.getLocation()},
 					{"Stronghold of Security", Location.create(3080, 3421, 0)}, 
 					{"Rock crabs", Location.create(2672, 3712, 0)}, 
 					{"Al-Kharid Warriors", Location.create(3293, 3180, 0)}, 
@@ -282,10 +284,10 @@ public class SkillTeleporterDialogue extends DialoguePlugin {
 				break;
 			}
 			Object teleports[] = TELEPORTS[optionIndex][teleIndex];
-			if (optionIndex == 2 && teleports[teleIndex] == "Puro Puro(requires Lost City)" && !player.getQuestRepository().isComplete("Lost City")) {
+			/*if (optionIndex == 2 && teleports[teleIndex] == "Puro Puro(requires Lost City)" && !player.getQuestRepository().isComplete("Lost City")) {
 				interpreter.sendDialogue("You need to have completed Lost City to teleport here.");
 				break;
-			}
+			}*/
 			System.out.println("Option index:"+optionIndex+" "+teleIndex);
 			if(optionIndex == 8 && teleIndex == 1) {
 				SlayerTeleport slayerTele = SlayerTeleport.getByAssignedTask(player);

@@ -21,6 +21,7 @@ import org.wildscape.game.content.skill.Skills;
 import org.wildscape.game.content.skill.free.smithing.smelting.Bar;
 import org.wildscape.game.content.skill.member.construction.HouseLocation;
 import org.wildscape.game.content.skill.member.summoning.pet.Pets;
+import org.wildscape.game.node.Node;
 import org.wildscape.game.node.entity.combat.ImpactHandler.HitsplatType;
 import org.wildscape.game.node.entity.npc.NPC;
 import org.wildscape.game.node.entity.player.Player;
@@ -37,6 +38,7 @@ import org.wildscape.game.system.script.ScriptManager;
 import org.wildscape.game.system.task.Pulse;
 import org.wildscape.game.world.GameWorld;
 import org.wildscape.game.world.map.Location;
+import org.wildscape.game.world.map.RegionManager;
 import org.wildscape.game.world.map.RegionPlane;
 import org.wildscape.game.world.map.zone.RegionZone;
 import org.wildscape.game.world.repository.Repository;
@@ -64,13 +66,15 @@ public final class DeveloperCommandPlugin extends CommandPlugin {
 	public boolean parse(final Player player, String name, String[] args) {
 		int value;
 		switch (name) {
-		case "hiticon":
+		case "ohiticon":		
+			Node node = RegionManager.getObject(player.getLocation());
+			HintIconManager.registerHintIconWithFlag(player, node);
+			break;
+		case "nhiticon":
 			NPC npc = Repository.findNPC( Integer.parseInt(args[1]));
 			HintIconManager.registerHintIconWithFlag(player, npc);
 			break;
-		case "starteco":
-			ResourceManager.kickStartEconomy();
-			break;
+
 		case "g":
 			Location l = player.getLocation();
 			int xz = l.getX();

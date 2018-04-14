@@ -2,8 +2,10 @@ package org.wildscape.net.packet.in;
 
 import org.wildscape.game.interaction.NodeUsageEvent;
 import org.wildscape.game.interaction.UseWithHandler;
+import org.wildscape.game.node.Node;
 import org.wildscape.game.node.entity.npc.NPC;
 import org.wildscape.game.node.entity.player.Player;
+import org.wildscape.game.node.entity.player.link.HintIconManager;
 import org.wildscape.game.node.item.Item;
 import org.wildscape.game.node.object.GameObject;
 import org.wildscape.game.system.SystemLogger;
@@ -113,6 +115,7 @@ public class ItemActionPacket implements IncomingPacket {
 			if (used == null || used.getId() != id) {
 				return;
 			}
+			handleInteractionHitIconFlag(object, player);
 			event = new NodeUsageEvent(player, 0, used, object);
 			UseWithHandler.run(event);
 			return;
@@ -120,5 +123,13 @@ public class ItemActionPacket implements IncomingPacket {
 			SystemLogger.error("Error in Item Action Packet! Unhandled opcode = " + buffer.opcode());
 			return;
 		}
+	}
+	private static void handleInteractionHitIconFlag(Node node, Player player) {
+		if(node == null || player == null ||
+				player.getAttribute("interaction-flag:hi_slot") == null || !node.isHintIconFlag())
+			return;		
+		int slot = player.getAttribute("interaction-flag:hi_slot",-1);
+		node.setHintIconFlag(false);
+		HintIconManager.removeHintIcon(player, slot);
 	}
 }

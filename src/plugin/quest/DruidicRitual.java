@@ -6,6 +6,7 @@ import org.wildscape.game.content.skill.Skills;
 import org.wildscape.game.node.entity.npc.NPC;
 import org.wildscape.game.node.entity.player.Player;
 import org.wildscape.game.node.entity.player.link.quest.Quest;
+import org.wildscape.game.node.entity.player.link.quest.QuestProtagonists;
 
 /**
  * The main type for the druidic ritual quest.
@@ -27,9 +28,11 @@ public class DruidicRitual extends Quest {
 		super.drawJournal(player, stage);
 		player.getPacketDispatch().sendString("<col=08088A>I can start this quest by speaking to the <col=8A0808>Kaqemeex</col> <col=08088A>who is at", 275, 4+ 7);
 		player.getPacketDispatch().sendString("<col=08088A>the </col><col=8A0808>Druids Circle</col> <col=08088A>just <col=8A0808>North</col> <col=08088A>of</col> <col=8A0808>Taverley.<col=8A0808>", 275, 5+ 7);
+		this.currentProtagonist = QuestProtagonists.KAQEMEEX;
 		if (stage == 10) {
 			player.getPacketDispatch().sendString("<str>I told Kaqemeex I would help them prepare their ceremony.</str>", 275, 4+ 7);
 			player.getPacketDispatch().sendString("<col=08088A>I should speak to <col=8A0808>Sanfew</col> <col=08088A>in the village to the <col=8A0808>South</col>", 275, 5+ 7);
+			this.currentProtagonist = QuestProtagonists.SANFEW;
 		}
 		if (stage == 20) {
 			player.getPacketDispatch().sendString("", 275, 5+ 7);
@@ -37,6 +40,7 @@ public class DruidicRitual extends Quest {
 			player.getPacketDispatch().sendString("<col=8A0808>Sanfew</col> <col=08088A>told me for the ritual they would need me to place", 275, 6+ 7);
 			player.getPacketDispatch().sendString("<col=8A0808>raw bear meat, raw chicken, raw rat meat, <col=08088A>and <col=8A0808>raw beef <col=08088A>in", 275, 7+ 7);
 			player.getPacketDispatch().sendString("<col=08088A>the <col=8A0808>Cauldron of Thunder in the <col=08088A>dungeon South of <col=8A0808>Taverley", 275, 8+ 7);
+			
 		}
 		if (stage == 99) {
 			player.getPacketDispatch().sendString("<str>I told Kaqemeex I would help them prepare their ceremony.</str>", 275, 4+ 7);

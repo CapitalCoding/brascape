@@ -10,6 +10,12 @@ public enum QuestProtagonists {
 	AUBURY("Aubury",  TeleportDestinations.VARROCK.getLocation(), 553, "South of Varrock East Bank"),
 	FATHER_AEREK("Father Aerek",  TeleportDestinations.LUMBRIDGE.getLocation(), 456, "Inside Lumbridge Church"),
 	FATHER_URHNEY("Father Aerek",  TeleportDestinations.LUMBRIDGE_SWAMP.getLocation(), 458, "Inside West House of Lumbridge Swamp"),
+	COOK("Cook",  TeleportDestinations.LUMBRIDGE.getLocation(), 278, "Inside Lumbridge Castle Kitchen"),
+	DORIC("Doric",  TeleportDestinations.TARVERLEY.getLocation(), 284, "North of Falador, Tarverley gate"),
+	KAQEMEEX("Kaqemeex",  TeleportDestinations.TARVERLEY.getLocation(), 455, "North East of Tarverley"),
+	SANFEW("Sanfew",  TeleportDestinations.TARVERLEY.getLocation(), 454, "2nd floor of herblore shop in Tarverley"),
+	CAULDRON("Cauldron of Thunder",  TeleportDestinations.TARVERLEY_DUNGEON.getLocation(), 454, "2nd floor of herblore shop in Tarverley"),
+	
 	;
 	
 	private String npcName;
