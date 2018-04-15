@@ -89,7 +89,9 @@ public final class Room {
 			Hotspot spot = hotspots[i];
 			int x = spot.getChunkX();
 			int y = spot.getChunkY();
-			int index = chunk.getIndex(x, y, spot.getHotspot().getObjectId());
+			System.out.println("Chunck:"+chunk.toString());
+			int index = chunk.
+					getIndex(x, y, spot.getHotspot().getObjectId());
 			GameObject[][] objects = chunk.getObjects(index);
 			GameObject object = objects[x][y];
 			if (object != null) {

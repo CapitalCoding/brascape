@@ -163,11 +163,14 @@ public final class SlayerManager implements SavingModule {
 		if (!hasTask()) {
 			clear();
 			taskCount++;
-			if (taskCount > 4 && master != Master.TURAEL && slayerPoints < 64000) {
+			if(master == Master.TURAEL) {
+				player.sendMessage("Turael is a beginners master; You should change Slayer Master to start earning Slayer Points.");
+			}
+			if (taskCount > 0 && master != Master.TURAEL && slayerPoints < 64000) {
 				int points = master.getTaskPoints()[0];
-				if (taskCount % 10 == 0) {
+				if (taskCount % 3 == 0) {
 					points = master.getTaskPoints()[1];
-				} else if (taskCount % 50 == 0) {
+				} else if (taskCount % 10 == 0) {
 					points = master.getTaskPoints()[2];
 				}
 				slayerPoints += points;
@@ -176,7 +179,7 @@ public final class SlayerManager implements SavingModule {
 				}
 				player.sendMessage("You've completed " + taskCount + " tasks in a row and received " + points + " points; return to a Slayer master.");
 			} else {
-				player.sendMessages("You've completed your task; Complete " + (4 - taskCount) + " more task(s) to start gaining points.", "return to a Slayer master.");
+				player.sendMessages("You've completed your task; Complete " + /*(4 - taskCount) + */" more task(s) to start gaining points.", "return to a Slayer master.");
 			}
 		} else {
 			player.sendMessage("You're assigned to kill " + npc.getName() + "s; Only " + getAmount() + " more to go.");

@@ -124,14 +124,15 @@ public final class EstateAgentDialogue extends DialoguePlugin {
 			break;
 		case 7:
 			Item coins = new Item(995, 1000);
-			if (player.getInventory().remove(coins)) {
+			/*if (player.getInventory().remove(coins)) {
 				player.getHouseManager().create(HouseLocation.RIMMINGTON);
 				npc("Thank you. Go through the Rimmington house portal", "and you will find your house ready for you to start", "building in it.");
 				stage = 8;
 			} else {
-				npc("You don't have enough money to buy a house,", "come back when you can afford one.");
+				npc("You don't have enough money to buy a house,", "come back when you can afford one.");*/
+			npc("Construction skill is disabled,", "please follow the updates to stay in.");
 				stage = 150;
-			}
+			//}
 			break;
 		case 8:
 			npc("This book will help you to start building your house.");
