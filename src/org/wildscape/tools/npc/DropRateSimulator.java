@@ -25,7 +25,7 @@ public final class DropRateSimulator {
 	/**
 	 * The NPC id to drop test.
 	 */
-	private static final int NPC_ID = 3071;
+	private static final int NPC_ID = 50;
 
 	/**
 	 * The drop log.
@@ -48,7 +48,7 @@ public final class DropRateSimulator {
 		npc.init();
 		//System.out.println("Maximum hit for NPC " + NPC_ID + " (" + npc.getName() + ") is " + npc.getSwingHandler(false).calculateHit(npc, npc, 1.0) + ".");
 	
-		int count = 1000000;
+		int count = 1000;
 		for (int j = 0; j < 1; j++) {
 			if (j == 2) {
 				EconomyManagement.update(EcoStatus.BOOSTING, 0.5);

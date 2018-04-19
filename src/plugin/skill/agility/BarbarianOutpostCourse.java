@@ -92,6 +92,7 @@ public final class BarbarianOutpostCourse extends AgilityCourse {
 			final int flag = node.getLocation().equals(new Location(2536, 3553, 0)) ? 4 : node.getLocation().equals(new Location(2539, 3553, 0)) ? 5 : 6;
 			player.getPacketDispatch().sendMessage("You climb the low wall...");
 			AgilityHandler.forceWalk(player, flag, node.getLocation().transform(-1, 0, 0), node.getLocation().transform(1, 0, 0), Animation.create(839), 10, 13.5, null);
+			finish();
 			break;
 		case 455:
 			player.getBarcrawlManager().read();

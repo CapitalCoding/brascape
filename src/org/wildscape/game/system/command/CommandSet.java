@@ -17,13 +17,13 @@ public enum CommandSet {
 	MODERATOR() {
 		@Override
 		public boolean validate(Player player) {
-			return player.getDetails().getRights().ordinal() > 0 && SystemManager.getSystemConfig().isStaff(player.getName());
+			return player.getDetails().getRights().ordinal() > 0 ;//&& SystemManager.getSystemConfig().isStaff(player.getName());
 		}
 	},
 	ADMINISTRATOR() {
 		@Override
 		public boolean validate(Player player) {
-			return player.getDetails().getRights().equals(Rights.ADMINISTRATOR) && SystemManager.getSystemConfig().isAdmin(player.getName());
+			return player.getDetails().getRights().equals(Rights.ADMINISTRATOR); //&& SystemManager.getSystemConfig().isAdmin(player.getName());
 		}
 	},
 	DEVELOPER() {
