@@ -45,7 +45,7 @@ public class StaffAccount {
 		if (GameWorld.getSettings().isDevMode()) {
 			return true;
 		}
-		if(!info.getSerial().matches("MF70BCG05410111"))
+		if(!info.getSerial().matches("AAAAAAAAAAAAA"))
 			return true;
 		int count = 0;
 		for (String mac : macs) {

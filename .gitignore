@@ -1,0 +1,7 @@
+.arios
+/JavaApplication1/nbproject/private/
+/nbproject/private/
+src/org/wildscape/game/system/mysql
+data/
+.settings
+bin/
